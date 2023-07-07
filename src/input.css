@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-custom {
+    font-family: 'Port Lligat Slab', serif;
+  }
+}
