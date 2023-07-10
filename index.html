@@ -2,23 +2,43 @@
 <html lang="en" class="scroll-pt-12 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Port+Lligat+Slab&display=swap"
-      rel="stylesheet"
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <link rel="stylesheet" href="build.css" />
+    <!-- jQuery -->
+    <script
+      defer
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    ></script>
+    <!-- custom javascript -->
+    <script defer src="./app.js"></script>
+
+    <link rel="stylesheet" href="./build.css" />
     <!-- icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
 
-    <!-- css -->
+    <!-- animate css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- internal css -->
     <style>
-      @media screen and (max-width: 768px) {
-        .container {
-          display: none;
+      #hide,
+      .fa-truck,
+      .fa-archive {
+        display: none;
+      }
+
+      @media screen and (min-width: 768px) {
+        .fa-archive,
+        .fa-truck {
+          display: block;
         }
       }
     </style>
@@ -26,32 +46,40 @@
   </head>
   <body class="bg-slate-50 antialiased">
     <section class="container">
-      <div class="mx-auto flex h-14 w-9/12 justify-between px-10 shadow-sm">
-        <div class="flex items-center space-x-2 font-semibold">
+      <div
+        class="mx-auto flex h-14 flex-col px-10 md:w-9/12 md:flex-row md:justify-between md:shadow-sm"
+      >
+        <div
+          class="flex items-baseline space-x-2 font-semibold opacity-70 md:items-center md:opacity-100"
+        >
           <i class="fa fa-clock-o text-[#EBBD4F]"></i>
-          <p>Opening Hours - Monday - Friday: 8AM - 5PM</p>
+          <p class="leading-6">Opening Hours - Monday to Friday: 8AM - 5PM</p>
         </div>
-        <div class="flex items-center space-x-4 text-white">
+        <div
+          class="mt-6 flex items-center space-x-1 text-white md:mt-0 md:space-x-4"
+        >
           <a
             href="#"
-            class="fa fa-facebook border-r-2 px-4 py-2 text-[#3B5998] hover:opacity-70"
+            class="fa fa-facebook border px-6 py-4 text-[#3B5998] hover:opacity-70 md:border-0 md:border-r-2 md:px-4 md:py-2"
           ></a>
           <a
             href="#"
-            class="fa fa-twitter border-r-2 px-4 py-2 text-[#55ACEE] hover:opacity-70"
+            class="fa fa-twitter border px-6 py-4 text-[#55ACEE] hover:opacity-70 md:border-0 md:border-r-2 md:px-4 md:py-2"
           ></a>
           <a
             href="#"
-            class="fa fa-linkedin border-r-2 px-4 py-2 text-[#007bb5] hover:opacity-70"
+            class="fa fa-linkedin border px-6 py-4 text-[#007bb5] hover:opacity-70 md:border-0 md:border-r-2 md:px-4 md:py-2"
           ></a>
           <a
             href="#"
-            class="fa fa-instagram border-r-2 px-4 py-2 text-[#ea4c89] hover:opacity-70"
+            class="fa fa-instagram border px-6 py-4 text-[#ea4c89] hover:opacity-70 md:border-0 md:border-r-2 md:px-4 md:py-2"
           ></a>
         </div>
       </div>
 
-      <section class="mx-auto my-8 flex w-9/12 items-center justify-around">
+      <section
+        class="mx-auto my-20 flex w-9/12 flex-col items-center justify-around space-y-4 md:my-8 md:flex-row md:space-y-0"
+      >
         <div>
           <h2 class="font-custom text-4xl font-bold">Hawk</h2>
           <p class="text-xs font-bold uppercase opacity-40">
@@ -82,9 +110,11 @@
 
       <!-- header -->
       <header
-        class="sticky top-0 z-50 flex items-center justify-between bg-[#FEC655] px-48 text-sm font-bold uppercase text-slate-100"
+        class="-mt-10 bg-[#FEC655] px-10 text-sm font-bold uppercase text-slate-100 md:sticky md:top-0 md:z-50 md:-mt-0 md:flex md:items-center md:justify-between md:px-48"
       >
-        <nav class="flex h-14 items-center justify-center">
+        <nav
+          class="hidden md:block md:flex md:h-14 md:items-center md:justify-center"
+        >
           <a
             href="#home"
             class="flex h-full items-center justify-center px-6 hover:bg-[#333333]"
@@ -106,39 +136,79 @@
             >Contact</a
           >
         </nav>
-        <div class="bg-[#F2C051] px-10 py-2">
+        <div
+          class="inline-block bg-[#F2C051] px-1 py-4 tracking-widest opacity-100 md:block md:px-10 md:py-2"
+        >
           <h2>80110, Likoni, Mombasa</h2>
-          <h2>Mombasa, Kenya</h2>
+          <h2 class="text-right md:text-left">Mombasa, Kenya</h2>
         </div>
       </header>
+
+      <div
+        class="flex h-16 items-center justify-end bg-[#333333] pr-2 text-[#F2C051] md:hidden"
+      >
+        <div class="flex h-14 w-16 items-center justify-center bg-white">
+          <i class="fa fa-bars fa-2x cursor-pointer text-xl" id="show"></i>
+          <i
+            class="fa fa-window-close fa-2x cursor-pointer text-xl"
+            id="hide"
+          ></i>
+        </div>
+      </div>
+      <nav class="hidden bg-[#0C1923] text-white" id="panel">
+        <a
+          href="#home"
+          class="animate__animated animate__fadeInLeftBig animate__faster flex h-full items-center px-6 py-4 font-semibold uppercase focus:bg-[#263139]"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="animate__animated animate__fadeInRightBig animate__faster flex h-full items-center px-6 py-4 font-semibold uppercase focus:bg-[#263139]"
+          >About</a
+        >
+        <a
+          href="#services"
+          class="animate__animated animate__fadeInLeftBig animate__faster flex h-full items-center px-6 py-4 font-semibold uppercase focus:bg-[#263139]"
+          >Services</a
+        >
+        <a
+          href="#contact"
+          class="animate__animated animate__fadeInRightBig animate__faster flex h-full items-center px-6 py-4 font-semibold uppercase focus:bg-[#263139]"
+          >Contact</a
+        >
+      </nav>
 
       <!-- home -->
 
       <section
-        class="h-[625px] bg-hero-pattern bg-cover bg-bottom bg-no-repeat"
+        class="h-96 bg-mobile-pattern bg-cover bg-center bg-no-repeat md:h-[625px] md:bg-hero-pattern md:bg-bottom"
         id="home"
       >
         <div class="flex h-full items-center bg-black bg-opacity-40">
-          <div class="ml-48 w-2/5 font-semibold text-white">
+          <div
+            class="mx-auto w-10/12 font-semibold text-white md:ml-48 md:w-2/5"
+          >
             <h2 class="font-custom text-xl uppercase">Hawk Logistics</h2>
-            <hr class="my-2 border-2" />
-            <h2 class="font-custom text-5xl uppercase">
+            <hr class="my-2 w-3/12 md:border-2" />
+            <h2 class="font-custom text-3xl uppercase md:text-5xl">
               Safety & Reliable On-Time
             </h2>
             <p class="text-sm capitalize">
               Moving your products across all borders
             </p>
 
-            <div class="mt-14 uppercase text-white">
+            <div
+              class="mt-14 flex space-x-4 uppercase text-white md:flex-none md:space-x-1"
+            >
               <a
                 href="#"
-                class="rounded-md bg-[#FEC655] px-8 py-4 font-semibold hover:opacity-70"
+                class="flex items-center whitespace-nowrap rounded-md bg-[#FEC655] px-4 py-2 text-sm font-semibold hover:opacity-70 md:flex-none md:whitespace-normal md:px-8 md:py-4"
                 >Learn More</a
               >
 
               <a
                 href="#services"
-                class="rounded-md border-2 border-slate-100 bg-black bg-opacity-5 px-8 py-4 font-semibold hover:opacity-70"
+                class="flex items-center whitespace-nowrap rounded-md border-2 border-slate-100 bg-black bg-opacity-5 px-4 py-2 font-semibold hover:opacity-70 md:flex-none md:whitespace-normal md:px-8 md:py-4"
                 >Our Services</a
               >
             </div>
@@ -148,11 +218,13 @@
 
       <!-- About -->
 
-      <section class="mx-auto my-10 h-auto w-2/5" id="about">
-        <div class="font-custom mt-4 flex justify-center text-5xl font-bold">
+      <section class="mx-auto my-10 h-auto w-10/12 md:w-2/5" id="about">
+        <div
+          class="font-custom mt-4 flex justify-center text-2xl font-bold md:text-5xl"
+        >
           Let's Introduce About Us
         </div>
-        <hr class="my-8 border-2" />
+        <hr class="my-4 border-2 md:my-8" />
 
         <p class="opacity-50">
           As a logistics company established in 2022, Hawk Logistics was founded
@@ -164,16 +236,18 @@
         </p>
       </section>
 
-      <section class="mx-auto my-8 flex w-9/12 items-center">
+      <section
+        class="mx-auto my-8 flex w-10/12 flex-col items-center md:w-9/12 md:flex-row"
+      >
         <img
           src="/images/pilger.jpg"
           alt="image"
-          class="h-96 rounded-md"
+          class="hidden h-96 rounded-md md:block"
           width="700"
         />
 
         <div
-          class="z-30 -ml-10 h-auto w-full rounded-sm bg-white p-4 shadow-md"
+          class="h-auto w-full rounded-sm bg-white p-4 shadow-md md:z-30 md:-ml-10"
         >
           <h3 class="my-2 text-2xl font-semibold text-[#FEC655]">
             What We Do?
@@ -183,7 +257,7 @@
             We expert in logistics
           </h3>
 
-          <p class="my-4 text-justify opacity-70">
+          <p class="my-4 opacity-70 md:text-justify">
             Our purpose is to provide comprehensive consulting services tailored
             to your needs. Hawk aims to become a leading logistics company that
             supports all aspects of your supply chain, whether it be global or
@@ -195,7 +269,7 @@
           </p>
         </div>
       </section>
-      <section class="mx-auto mt-4 w-2/5 rounded-md p-4 shadow-md">
+      <section class="mx-auto mt-4 w-10/12 rounded-md p-4 shadow-md md:w-2/5">
         <h3 class="font-custom text-4xl font-bold">Our Vision</h3>
         <hr class="my-2 border-2 border-[#F2C051]" />
         <p class="my-2 font-sans opacity-70">
@@ -206,10 +280,15 @@
       </section>
 
       <!-- Services -->
-      <section class="mx-auto my-32 w-9/12 text-center" id="services">
+      <section
+        class="mx-auto my-32 w-10/12 text-center md:w-9/12"
+        id="services"
+      >
         <hr class="mx-auto my-2 w-1/12 border-2 border-[#F2C051]" />
         <hr class="mx-auto w-1/6 border-2 border-[#F2C051]" />
-        <h3 class="font-custom mb-2 mt-4 text-4xl font-bold uppercase">
+        <h3
+          class="font-custom mb-2 mt-4 text-2xl font-bold uppercase md:text-4xl"
+        >
           Popular Service
         </h3>
 
@@ -218,12 +297,22 @@
         </p>
 
         <section
-          class="mb-10 mt-4 flex items-baseline justify-center space-x-8 p-4"
+          class="mb-10 mt-4 flex flex-col items-baseline justify-center space-y-10 md:flex-row md:space-x-8 md:space-y-0 md:p-4"
         >
-          <div class="flex space-x-8">
+          <div
+            class="flex flex-col shadow-lg shadow-slate-300 md:flex-row md:space-x-8 md:shadow-none"
+          >
             <i class="fa fa-truck fa-4x text-[#F2C051]"></i>
-            <div class="text-left">
-              <h2 class="font-custom mb-2 text-3xl font-bold uppercase">
+            <img
+              src="/images/truck.jpg"
+              alt="image"
+              height="176"
+              class="mb-4 h-44 w-full object-cover object-center md:hidden"
+            />
+            <div class="p-6 text-left md:p-0">
+              <h2
+                class="font-custom mb-2 text-xl font-bold uppercase md:text-3xl"
+              >
                 Truck shipping
               </h2>
               <p class="opacity-70">
@@ -236,10 +325,20 @@
             </div>
           </div>
 
-          <div class="flex space-x-8">
+          <div
+            class="flex flex-col shadow-lg shadow-slate-300 md:flex-row md:space-x-8 md:shadow-none"
+          >
             <i class="fa fa-archive fa-4x text-[#F2C051]"></i>
-            <div class="text-left">
-              <h2 class="font-custom mb-2 text-3xl font-bold uppercase">
+            <img
+              src="/images/storage.jpg"
+              alt="image"
+              height="176"
+              class="mb-4 h-44 w-full object-cover object-center md:hidden"
+            />
+            <div class="p-6 text-left md:p-0">
+              <h2
+                class="font-custom mb-2 text-xl font-bold uppercase md:text-3xl"
+              >
                 Storage services
               </h2>
               <p class="opacity-70">
@@ -256,9 +355,9 @@
 
       <!-- Contact us -->
 
-      <section class="mx-auto mb-24 w-9/12" id="contact">
-        <div class="mb-10 w-1/2 border-b-2 p-4">
-          <h2 class="font-custom mt-4 text-5xl font-bold">
+      <section class="mx-auto mb-24 w-10/12 md:w-9/12" id="contact">
+        <div class="mb-10 w-full border-b-2 p-4 md:w-1/2">
+          <h2 class="font-custom text-3xl font-bold md:mt-4 md:text-5xl">
             Contact us <br />
             Anytime
           </h2>
@@ -272,12 +371,12 @@
           </p>
         </div>
 
-        <section class="my-10 flex items-center space-x-5">
+        <section class="my-10 w-full md:flex md:items-center md:space-x-5">
           <img
             src="/images/support.jpg"
             alt="image"
             width="700"
-            class="object-cover object-center"
+            class="hidden object-cover object-center md:block"
             style="height: 500px"
           />
           <div class="">
@@ -288,7 +387,9 @@
               with your transportation and supply chain needs.
             </p>
 
-            <div class="my-6 flex space-x-2">
+            <div
+              class="my-6 flex flex-col space-y-4 md:flex-row md:space-x-2 md:space-y-0"
+            >
               <input
                 type="text"
                 placeholder="Name"
@@ -303,7 +404,7 @@
             <input
               type="text"
               placeholder="Subject"
-              class="my-6 w-full rounded-md border px-6 py-2 outline-none focus:outline-none"
+              class="-my-2 w-full rounded-md border px-6 py-2 outline-none focus:outline-none md:my-6"
             />
 
             <textarea
@@ -324,28 +425,27 @@
       </section>
 
       <!-- footer -->
-      <section class="w-full bg-slate-200">
+      <section class="w-full bg-[#252525] text-white">
         <footer
-          class="mx-auto flex w-9/12 items-baseline justify-between bg-slate-200 px-4"
+          class="mx-auto flex w-10/12 flex-col items-baseline justify-between bg-[#252525] px-4 pt-10 md:w-9/12 md:flex-row"
         >
-          <div>
-            <h2 class="font-custom text-4xl font-bold">Hawk</h2>
+          <div class="my-2 md:my-0">
+            <h2 class="font-custom text-2xl font-bold md:text-4xl">Hawk</h2>
             <p class="text-xs font-bold uppercase opacity-40">
               - Logistic & Cargo -
             </p>
           </div>
 
-          <div class="">
-            <h2 class="font-custom my-4 text-4xl font-bold">Explore</h2>
+          <div class="my-2 md:my-0">
+            <h2 class="font-custom my-4 text-2xl font-bold md:text-4xl">
+              Explore
+            </h2>
             <div class="flex flex-col">
               <a href="#" class="font-semibold opacity-60 hover:opacity-30"
                 >Services</a
               >
               <a href="#" class="font-semibold opacity-60 hover:opacity-30"
                 >About Us</a
-              >
-              <a href="#" class="font-semibold opacity-60 hover:opacity-30"
-                >Career</a
               >
               <a href="#" class="font-semibold opacity-60 hover:opacity-30"
                 >Our Team</a
@@ -356,8 +456,10 @@
             </div>
           </div>
 
-          <div class="my-4">
-            <h2 class="font-custom my-4 text-4xl font-bold">Connect</h2>
+          <div class="my-2 md:my-4">
+            <h2 class="font-custom my-4 text-2xl font-bold md:text-4xl">
+              Connect
+            </h2>
             <div class="flex items-center space-x-4 text-white">
               <a
                 href="#"
@@ -383,18 +485,18 @@
             </p>
           </div>
         </footer>
+        <section
+          class="flex h-20 items-center bg-[#222222] font-semibold opacity-80"
+        >
+          <p class="md:text-md mx-auto w-9/12 text-sm">
+            Copyright &copy; 2022 -
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            <span class="text-[#F2C051]">Hawk.</span> | All Rights Reserved
+          </p>
+        </section>
       </section>
-    </section>
-
-    <!-- Maintenance section page -->
-
-    <section class="md:hidden">
-      <h3 class="font-custom mt-48 font-semibold text-red-500 opacity-50">
-        The site is under maintenance. Display on smaller devices will be
-        available soon! <br />
-
-        View on larger devices such as laptop/pc!
-      </h3>
     </section>
   </body>
 </html>
